@@ -1012,5 +1012,12 @@ require('lazy').setup({
   },
 })
 
+vim.keymap.set('n', '<leader>cp', function()
+  vim.fn.setreg('+', vim.fn.expand '%:p')
+  print 'Caminho copiado!'
+end, { desc = 'Copiar caminho do arquivo' })
+
+vim.keymap.set('n', '<leader>cc', 'ggVG"+y', { desc = 'Copiar todo o conteúdo para o clipboard' })
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
